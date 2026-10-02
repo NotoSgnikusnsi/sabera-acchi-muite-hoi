@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  端末の外に出さない: このアプリの設定（同意した版を含むので、別の端末へ移ると同意の画面を飛ばしてしまう）と、
+  前回つないだグラスの識別子。Google のバックアップにも、機種変更の移行にも入れない
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="acchi_muite_hoi.xml" />
+        <exclude domain="sharedpref" path="glasses_sdk.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="acchi_muite_hoi.xml" />
+        <exclude domain="sharedpref" path="glasses_sdk.xml" />
+    </device-transfer>
+</data-extraction-rules>

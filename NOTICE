@@ -1,0 +1,35 @@
+あっち向いてホイ（SABERA 対応）
+
+このアプリの一部は、次のサンプルコードを元に変更して使っている。
+
+  Sabera App SDK Samples
+  Copyright 2026 株式会社jig.jp
+  Apache License 2.0（全文は LICENSES/Apache-2.0.txt）
+  https://github.com/jig-SABERA/sabera-sdk
+
+元にした部分と変えたこと:
+- app/src/main/kotlin/dev/acchimuitehoi/MainActivity.kt のデバイス選択（BleDeviceSelector を Activity に結び付ける部分）:
+  公式の KMP サンプルの Android の Activity から、このアプリに要る部分だけをコピーして短くし、権限の確認を足した
+- app/src/main/kotlin/dev/acchimuitehoi/AcchiApplication.kt の SharedPrefsDevicePersistence（前回繋いだグラスを覚える）:
+  公式の KMP サンプルのものをコピーして、このアプリの書き方に合わせて変えた
+
+サンプルの NOTICE:
+
+  Sabera App SDK Samples
+  Copyright 2026 株式会社jig.jp
+
+  このリポジトリのサンプルコードは Apache License 2.0 で提供されます。
+
+  サンプルが依存する Sabera App SDK 本体（jp.jig.sabera.app.sdk:*、AAR / XCFramework）は
+  このリポジトリには含まれず、Apache License 2.0 の対象外です。
+  SDK 本体の利用には別途 SDK 利用規約が適用されます。
+
+  SDK 本体の Android 版には Opus (libopus) 1.4 が含まれます。Opus は BSD 3-Clause で
+  提供されており、SDK を組み込んだアプリを配布するときは著作権表示と免責の表示が必要です。
+
+Sabera App SDK 本体はこの repo に含まれない（ビルドのときに GitHub Packages から取得する）。
+SDK 本体は Apache License 2.0 の対象外で、SDK 利用規約が適用される。
+SDK 本体の Android 版に含まれる Opus (libopus) 1.4 の著作権表示と免責は LICENSES/Opus-BSD-3-Clause.txt にあり、
+アプリの「ライセンス」画面にも出す。
+
+この repo のうち、上のサンプル由来の部分以外はこのアプリの作者が書いたもので、ライセンスを付けていない。
