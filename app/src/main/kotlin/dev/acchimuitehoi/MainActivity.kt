@@ -22,7 +22,7 @@ import kotlinx.coroutines.cancel
 
 /**
  * デバイス選択（BleDeviceSelector を Activity に結び付ける部分）は、Sabera App SDK Samples（Copyright 2026 株式会社jig.jp、
- * Apache License 2.0）の KMP サンプルの Activity を写して縮め、変更したもの。表示は repo の NOTICE と LICENSES/Apache-2.0.txt
+ * Apache License 2.0）の KMP サンプルの Activity を写して縮め、変更したもの。表示は repo の NOTICE と LICENSE
  */
 class MainActivity : ComponentActivity() {
 

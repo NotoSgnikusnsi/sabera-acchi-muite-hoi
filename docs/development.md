@@ -48,5 +48,6 @@ GitHubPackagesPassword=<PAT>
 - INTERNET 権限を足さない。頭の向きを保存しない
 - 拍・判定・タッチの挙動を変えたら `GameEngineTest`・`DirectionTest` を直すか足す
 - 利用条件・プライバシーポリシー・安全の注意の内容を変えたら、文書の版と `Legal.kt` の `CONSENT_VERSION` を上げる（上げると、次に開いたときに同意の画面をもう一度出す）
-- 直下の `PRIVACY.md`・`TERMS.md`・`NOTICE`・`LICENSES/` はビルドで assets に写す。動かすなら `app/build.gradle.kts` の `copyLegalAssets` も直す
+- 直下の `PRIVACY.md`・`TERMS.md`・`NOTICE`・`LICENSE`・`LICENSES/` はビルドで assets に写す。動かすなら `app/build.gradle.kts` の `copyLegalAssets` も直す
+- 新しいソースファイルにも Apache License 2.0 が適用される。公式サンプルなど他から持ってきたコードを足すときは、元のライセンスと著作権表示を `NOTICE` に足す
 - 設定のキー（`SettingsCodec`）は変えない。足すときは、無い値を既定にする

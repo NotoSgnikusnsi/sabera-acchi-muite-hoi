@@ -6,7 +6,7 @@
 
 - `app/` アプリ（コードは `app/src/main/kotlin/dev/acchimuitehoi/`、テストは `app/src/test/`）
 - `docs/` 設計・開発・テスト
-- 直下の `PRIVACY.md`・`TERMS.md`・`NOTICE`・`LICENSES/` は、ビルドのときにアプリの assets にコピーされる
+- 直下の `PRIVACY.md`・`TERMS.md`・`NOTICE`・`LICENSE`・`LICENSES/` は、ビルドのときにアプリの assets にコピーされる
 
 ## 守ること
 
@@ -36,4 +36,4 @@
 | ビルド・SDK の取得・変更の決まり | `docs/development.md` |
 | テストと実機での確認 | `docs/testing.md` |
 | 版の上げ方・APK の配り方 | `docs/release.md`（ビルドは `scripts/release.sh`） |
-| 情報の扱い・利用条件・ライセンス表示 | `PRIVACY.md`・`TERMS.md`・`NOTICE`・`LICENSES/` |
+| 情報の扱い・利用条件・ライセンス表示 | `PRIVACY.md`・`TERMS.md`・`NOTICE`・`LICENSE`（この repo の Apache License 2.0）・`LICENSES/`（SDK に含まれる Opus） |

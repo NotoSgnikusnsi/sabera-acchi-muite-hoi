@@ -29,7 +29,7 @@ android {
     }
 }
 
-// repo の直下の PRIVACY.md・TERMS.md・NOTICE・LICENSES/ を assets/legal/ に写して、アプリの画面で読む。
+// repo の直下の PRIVACY.md・TERMS.md・NOTICE・LICENSE・LICENSES/ を assets/legal/ に写して、アプリの画面で読む。
 // 文面を repo とアプリで二重に持たないため
 abstract class CopyLegalAssets : DefaultTask() {
     @get:InputFiles
@@ -54,7 +54,7 @@ abstract class CopyLegalAssets : DefaultTask() {
 }
 
 val copyLegalAssets = tasks.register<CopyLegalAssets>("copyLegalAssets") {
-    files.from(rootProject.file("PRIVACY.md"), rootProject.file("TERMS.md"), rootProject.file("NOTICE"))
+    files.from(rootProject.file("PRIVACY.md"), rootProject.file("TERMS.md"), rootProject.file("NOTICE"), rootProject.file("LICENSE"))
     licenses.set(rootProject.layout.projectDirectory.dir("LICENSES"))
 }
 

@@ -1,10 +1,13 @@
 あっち向いてホイ（SABERA 対応）
+Copyright 2026 NotoSgnikusnsi
+
+この repo のソースコードは Apache License 2.0 で提供する。全文は repo の LICENSE にあり、アプリの「ライセンス」画面では最後の Apache License 2.0 の節に出す。
 
 このアプリの一部は、次のサンプルコードを元に変更して使っている。
 
   Sabera App SDK Samples
   Copyright 2026 株式会社jig.jp
-  Apache License 2.0（全文は LICENSES/Apache-2.0.txt）
+  Apache License 2.0（全文は、この repo の LICENSE にある Apache License 2.0 と同じ）
   https://github.com/jig-SABERA/sabera-sdk
 
 元にした部分と変えたこと:
@@ -26,10 +29,12 @@
 
   SDK 本体の Android 版には Opus (libopus) 1.4 が含まれます。Opus は BSD 3-Clause で
   提供されており、SDK を組み込んだアプリを配布するときは著作権表示と免責の表示が必要です。
+  全文と対応の仕方は docs/third-party-notices.md を参照してください。
+
+注: サンプルの NOTICE が指す docs/third-party-notices.md は、この repo ではなく公式サンプルの repo（https://github.com/jig-SABERA/sabera-sdk）にあるファイル。
 
 Sabera App SDK 本体はこの repo に含まれない（ビルドのときに GitHub Packages から取得する）。
-SDK 本体は Apache License 2.0 の対象外で、SDK 利用規約が適用される。
+SDK 本体は Apache License 2.0 の対象外で、SDK 利用規約が適用される。ビルドした APK には SDK 本体が組み込まれるが、
+APK の中の SDK 本体にも Apache License 2.0 ではなく SDK 利用規約が適用される。
 SDK 本体の Android 版に含まれる Opus (libopus) 1.4 の著作権表示と免責は LICENSES/Opus-BSD-3-Clause.txt にあり、
 アプリの「ライセンス」画面にも出す。
-
-この repo のうち、上のサンプル由来の部分以外はこのアプリの作者が書いたもので、ライセンスを付けていない。

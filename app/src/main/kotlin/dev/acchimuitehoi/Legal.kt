@@ -3,18 +3,18 @@ package dev.acchimuitehoi
 import android.content.Context
 
 /**
- * 人に渡すときに要る表示と同意。文面は repo の直下の PRIVACY.md・TERMS.md・NOTICE・LICENSES/ で、
+ * 人に渡すときに要る表示と同意。文面は repo の直下の PRIVACY.md・TERMS.md・NOTICE・LICENSE・LICENSES/ で、
  * ビルドのときに assets/legal/ に写したものを読む（app/build.gradle.kts の copyLegalAssets）。
  */
 
-/** 初回の同意の文面の版。安全の注意・利用条件・プライバシーポリシー・ライセンスのどれかを変えたら上げる（上げると次に開いたときにもう一度出す） */
+/** 初回の同意の文面の版。安全の注意・利用条件・プライバシーポリシーのどれかを変えたら上げる（上げると次に開いたときにもう一度出す）。ライセンスの表示は同意の対象ではないので、変えても上げない */
 const val CONSENT_VERSION = 1
 
 enum class LegalDoc(val title: String, val asset: String) {
     TERMS("利用条件と安全の注意", "legal/TERMS.md"),
     PRIVACY("プライバシーポリシー", "legal/PRIVACY.md"),
     NOTICE("このアプリの表示（NOTICE）", "legal/NOTICE"),
-    APACHE("Apache License 2.0（公式サンプル由来の部分）", "legal/LICENSES/Apache-2.0.txt"),
+    APACHE("Apache License 2.0", "legal/LICENSE"),
     OPUS("Opus（Sabera App SDK に含まれる）", "legal/LICENSES/Opus-BSD-3-Clause.txt"),
 }
 
