@@ -10,7 +10,7 @@ import com.mikepenz.aboutlibraries.entity.Library
  */
 
 /** 初回の同意の文面の版。安全の注意・利用条件・プライバシーポリシーのどれかを変えたら上げる（上げると次に開いたときにもう一度出す）。ライセンスの表示は同意の対象ではないので、変えても上げない */
-const val CONSENT_VERSION = 1
+const val CONSENT_VERSION = 2
 
 enum class LegalDoc(val title: String, val asset: String) {
     TERMS("利用条件と安全の注意", "legal/TERMS.md"),
