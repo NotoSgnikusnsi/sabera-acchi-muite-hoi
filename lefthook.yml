@@ -1,0 +1,9 @@
+# git hooks（有効化: `lefthook install`。newrepo が作成時に実行する）
+
+pre-push:
+  commands:
+    # 非公開リポジトリでは GitHub の push protection が効かないので、手元で秘密を止める。
+    # 誤検知は .gitleaksignore に fingerprint を足して黙らせる（検査自体は外さない）。
+    gitleaks:
+      run: gitleaks git --redact --no-banner
+    # 公開前検査（publish-guard）は git の global 設定の hook が全 repo で走らせるので、ここには書かない
