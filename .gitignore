@@ -1,0 +1,23 @@
+# ビルドの生成物
+build/
+.gradle/
+.kotlin/
+# 手元の SDK の場所（端末ごとに違う）
+local.properties
+# APK は repo に入れない（ビルドして作る）
+*.apk
+*.aab
+# README を書き換える前の退避
+README.*.bak.md
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+captures/
+# SDK の本体と鍵は repo に入れない（SDK は GitHub Packages から取る。gradle-wrapper.jar は入れる）
+*.aar
+*.xcframework
+*.jks
+*.keystore
+.netrc
