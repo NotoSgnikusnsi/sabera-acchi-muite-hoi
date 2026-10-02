@@ -20,7 +20,7 @@ tag="v$version"
 name="sabera-acchi-muite-hoi-$version"
 
 [[ -z $(git status --porcelain) ]] || die "commit していない変更がある"
-if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then die "tag $tag が既にある（versionName と versionCode を上げる）"; fi
+if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then die "tag ${tag} が既にある（versionName と versionCode を上げる）"; fi
 
 # CHANGELOG の「## [x.y.z]」から次の「## [」の手前までを、その版の変更として使う
 changes=$(awk -v v="$version" '
@@ -58,8 +58,9 @@ SHA-256: \`$sha\`
 commit: \`$commit\`
 EOF
 
-echo "版: $version（tag $tag）"
-echo "APK: $apk"
-echo "SHA-256: $sha"
-echo "commit: $commit"
-echo "リリースノート: dist/$name-notes.md"
+# macOS の bash 3.2 は、変数の直後の全角文字を変数名の一部と読むので、${} で囲む
+echo "版: ${version}（tag ${tag}）"
+echo "APK: ${apk}"
+echo "SHA-256: ${sha}"
+echo "commit: ${commit}"
+echo "リリースノート: dist/${name}-notes.md"
