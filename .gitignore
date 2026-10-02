@@ -4,8 +4,9 @@ build/
 .kotlin/
 # 手元の SDK の場所（端末ごとに違う）
 local.properties
-# APK は repo に入れない（ビルドして作る）
+# APK は repo に入れない（ビルドして作る）。scripts/release.sh の出力も
 *.apk
+dist/
 *.aab
 # README を書き換える前の退避
 README.*.bak.md

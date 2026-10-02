@@ -22,7 +22,7 @@ GitHubPackagesPassword=<PAT>
 - JDK 17 以上が要る
 - Android SDK の場所は `local.properties` の `sdk.dir`（repo に入れない）
 - AGP の aapt2 には linux-aarch64 版が無いので、arm64 の Linux では APK を作れない。Mac か x86_64 の Linux でビルドする
-- 版は `app/build.gradle.kts` の `versionCode` と `versionName`
+- 版は `app/build.gradle.kts` の `versionCode` と `versionName`。配る手順は [release.md](release.md)
 
 ## 変更の決まり
 

@@ -43,6 +43,7 @@ Sabera App SDK は GitHub Packages の private なパッケージで、この re
 | [docs/design.md](docs/design.md) | ゲームの進み方・判定・グラスの表示の決め方 |
 | [docs/development.md](docs/development.md) | ビルド・SDK の取得・変更の決まり |
 | [docs/testing.md](docs/testing.md) | ユニットテストと実機での確認項目 |
+| [docs/release.md](docs/release.md) | 版の上げ方と、tag と GitHub Release で APK を配る手順 |
 | [CHANGELOG.md](CHANGELOG.md) | 版ごとの変更 |
 | [PRIVACY.md](PRIVACY.md)・[TERMS.md](TERMS.md) | 情報の扱い・利用条件と安全の注意 |
 
