@@ -39,8 +39,8 @@ class CanvasScreensTest {
         }
     }
 
-    private val main = "image 0 88,40,400x184"
-    private val status = "image 1 64,280,448x56"
+    private val main = "image 0 88,64,400x160"
+    private val status = "image 1 88,240,400x48"
 
     @Test
     fun sendsOnlyWhatChangedAndKeepsEachIdInOnePlace() {
@@ -110,5 +110,19 @@ class CanvasScreensTest {
         assertTrue(replacingStatus <= CanvasLayout.BUFFER_BUDGET, "replacingStatus=$replacingStatus")
         // 2 枚は重ならない
         assertTrue(CanvasLayout.MAIN.y + CanvasLayout.MAIN.height <= CanvasLayout.STATUS.y)
+    }
+
+    @Test
+    fun slotsStayInsideTheSafeAreaAroundTheCenter() {
+        val safe = CanvasLayout.SAFE
+        // 安全な範囲はキャンバスの中心に置く
+        assertEquals(CanvasLayout.WIDTH, safe.x * 2 + safe.width)
+        assertEquals(CanvasLayout.HEIGHT, safe.y * 2 + safe.height)
+        // 0.1.0 の実機で y 280〜336 の下の行が切れて見えたので、y 300 より下には置かない（300 は決めた上限で、測った境界ではない）
+        assertTrue(safe.y + safe.height <= 300)
+        for (s in listOf(CanvasLayout.MAIN, CanvasLayout.STATUS)) {
+            assertTrue(s.x >= safe.x && s.x + s.width <= safe.x + safe.width, "x: $s")
+            assertTrue(s.y >= safe.y && s.y + s.height <= safe.y + safe.height, "y: $s")
+        }
     }
 }
