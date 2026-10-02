@@ -2,6 +2,12 @@
 
 [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) の形で書く。
 
+## [Unreleased]
+
+### Added
+
+- ホーム画面とアプリ一覧に出るアイコンを、Android の既定のアイコンから、指さしの手のドット絵に変えた。Android 13 以降でテーマアイコンをオンにすると、このアイコンも壁紙に合わせた色で出る
+
 ## [0.1.1] - 2026-10-02
 
 ### Fixed

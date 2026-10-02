@@ -24,6 +24,22 @@ GitHubPackagesPassword=<PAT>
 - AGP の aapt2 には linux-aarch64 版が無いので、arm64 の Linux では APK を作れない。Mac か x86_64 の Linux でビルドする
 - 版は `app/build.gradle.kts` の `versionCode` と `versionName`。配る手順は [release.md](release.md)
 
+## ランチャーアイコン
+
+ランチャーアイコンは、指さしの手のドット絵のアダプティブアイコンで、`app/src/main/res/` の次の 5 ファイルでできている。
+
+| ファイル | 中身 |
+|---|---|
+| `drawable/ic_launcher_foreground.xml` | 前景。手の輪郭（`#1F2203`）と中（`#C9D7FD`）の 2 つの path |
+| `drawable/ic_launcher_monochrome.xml` | Android 13 以降のテーマアイコン用。前景の中（`#C9D7FD`）の path と同じ形を、白 1 色で描く |
+| `values/ic_launcher_background.xml` | 背景色（`#7E8904`） |
+| `mipmap-anydpi/ic_launcher.xml`・`ic_launcher_round.xml` | 前景・monochrome・背景色を組み合わせるアダプティブアイコンの定義。2 つの中身は同じ |
+
+- 絵は 108 x 108 の viewport に、1 辺 4.111 の正方形のドットを並べて描いている。前景と monochrome の絵を変えるときは、`pathData` の矩形（`M x y h 幅 v 高さ z`）を足し引きする
+- ランチャーはアイコンを円や角丸の形に切り抜く。Android のアダプティブアイコンの安全域は直径 66dp なので、ドットはすべて中心から半径 33 の円の内側に置く
+- monochrome の `pathData` は、前景の中（`#C9D7FD`）の path と同じにそろえ、色は白 1 色のままにする。テーマアイコンの色はシステムが壁紙に合わせて付ける
+- minSdk が 31 なので、アダプティブアイコンは版の修飾子の無い `mipmap-anydpi/` に置き、密度ごとの PNG は置かない。アダプティブアイコンは Android 8.0（API 26）以上で使われ、この minSdk ではすべての端末が対象になる
+
 ## 変更の決まり
 
 - グラスとの通信は SDK の公開 API だけで行う。SDK を通さない BLE の送受信をしない。ファームウェアに触れない

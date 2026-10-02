@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ランチャーアイコンの絵（指さしの手のドット絵）。直し方は docs/development.md の「ランチャーアイコン」 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M47.834 31.39h8.222v4.111h-8.222zM47.834 35.501h8.222v4.111h-8.222zM47.834 39.612h8.222v4.111h-8.222zM47.834 43.723h8.222v4.111h-8.222zM47.834 47.834h24.666v4.111h-24.666zM47.834 51.945h4.111v4.111h-4.111zM56.055 51.945h4.111v4.111h-4.111zM64.277 51.945h8.222v4.111h-8.222zM35.501 56.055h8.222v4.111h-8.222zM47.834 56.055h24.666v4.111h-24.666zM35.501 60.166h12.333v4.111h-12.333zM51.945 60.166h20.555v4.111h-20.555zM39.612 64.277h32.888v4.111h-32.888zM43.723 68.388h28.777v4.111h-28.777zM47.834 72.499h24.666v4.111h-24.666z" />
+</vector>
