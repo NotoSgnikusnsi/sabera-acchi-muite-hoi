@@ -1,6 +1,8 @@
 package dev.acchimuitehoi
 
 import android.content.Context
+import com.mikepenz.aboutlibraries.Libs
+import com.mikepenz.aboutlibraries.entity.Library
 
 /**
  * 人に渡すときに要る表示と同意。文面は repo の直下の PRIVACY.md・TERMS.md・NOTICE・LICENSE・LICENSES/ で、
@@ -16,6 +18,7 @@ enum class LegalDoc(val title: String, val asset: String) {
     NOTICE("このアプリの表示（NOTICE）", "legal/NOTICE"),
     APACHE("Apache License 2.0", "legal/LICENSE"),
     OPUS("Opus（Sabera App SDK に含まれる）", "legal/LICENSES/Opus-BSD-3-Clause.txt"),
+    SLF4J("SLF4J API Module の MIT License", "legal/LICENSES/SLF4J-MIT.txt"),
 }
 
 fun AppSettings.needsConsent(): Boolean = consentVersion < CONSENT_VERSION
@@ -36,6 +39,33 @@ fun readOpusNotice(context: Context): String {
     }.getOrNull()
     return if (!fromSdk.isNullOrBlank()) fromSdk else readLegal(context, LegalDoc.OPUS)
 }
+
+/**
+ * APK に入る依存ライブラリの一覧。ライブラリごとに名前・版・ライセンス・作者を出す。
+ * ライセンスの全文は「ライセンス」画面の別の節に出す（Apache License 2.0 は LegalDoc.APACHE、MIT License は LegalDoc.SLF4J）
+ */
+fun formatLibraries(libraries: List<Library>): String {
+    val lines = libraries.map { lib ->
+        val authors = (listOfNotNull(lib.organization?.name) + lib.developers.mapNotNull { it.name })
+            .filter { it.isNotBlank() }
+            .distinct()
+        buildString {
+            append(lib.name)
+            lib.artifactVersion?.let { append(" ").append(it) }
+            append("\n  ").append(lib.licenses.joinToString("・") { it.name }.ifEmpty { "ライセンスの記載なし" })
+            if (authors.isNotEmpty()) append("\n  作者: ").append(authors.joinToString("・"))
+            append("\n  ").append(lib.uniqueId)
+        }
+    }
+    return "このアプリには次の ${libraries.size} 個のライブラリが入っている。\n\n" + lines.joinToString("\n\n")
+}
+
+/** ビルドのときに AboutLibraries が書き出す res/raw/aboutlibraries.json を読む。Libs.Builder がライブラリを名前の順に並べる */
+fun readLibraries(context: Context): String =
+    runCatching {
+        val json = context.resources.openRawResource(R.raw.aboutlibraries).bufferedReader().use { it.readText() }
+        formatLibraries(Libs.Builder().withJson(json).build().libraries)
+    }.getOrElse { "ライブラリの一覧を読み込めなかった。" }
 
 /** 同意の画面と設定の画面に出す安全の注意 */
 val SAFETY_POINTS = listOf(

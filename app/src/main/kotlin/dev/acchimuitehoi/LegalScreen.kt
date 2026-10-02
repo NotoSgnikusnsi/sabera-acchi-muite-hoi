@@ -74,7 +74,7 @@ fun ConsentScreen(onAccept: () -> Unit, onDecline: () -> Unit) {
     LegalDoc.entries.firstOrNull { it.name == openName }?.let { doc -> LegalDocDialog(doc) { openName = null } }
 }
 
-/** 文書を全画面で読む。ライセンスは NOTICE・Opus・Apache をまとめて出す */
+/** 文書を全画面で読む。ライセンスは NOTICE・Opus・依存ライブラリの一覧・SLF4J・Apache をまとめて出す */
 @Composable
 fun LegalDocDialog(doc: LegalDoc, onClose: () -> Unit) {
     val context = LocalContext.current
@@ -84,6 +84,10 @@ fun LegalDocDialog(doc: LegalDoc, onClose: () -> Unit) {
                 readLegal(context, LegalDoc.NOTICE),
                 "---- " + LegalDoc.OPUS.title,
                 readOpusNotice(context),
+                "---- このアプリが使っているライブラリ",
+                readLibraries(context),
+                "---- " + LegalDoc.SLF4J.title,
+                readLegal(context, LegalDoc.SLF4J),
                 "---- " + LegalDoc.APACHE.title,
                 readLegal(context, LegalDoc.APACHE),
             ).joinToString("\n\n")

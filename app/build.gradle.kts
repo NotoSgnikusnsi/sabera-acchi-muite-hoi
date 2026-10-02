@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.compose")
+    id("com.mikepenz.aboutlibraries.plugin.android")
 }
 
 android {
@@ -64,6 +65,22 @@ androidComponents {
     }
 }
 
+// APK に入る依存ライブラリとライセンスの一覧を、ビルドのときに res/raw/aboutlibraries.json に書き出し、「ライセンス」画面で読む。
+// 許可していないライセンスの依存が入ると、ビルドが失敗する。失敗したら、そのライセンスの全文と著作権表示を LICENSES/ に置き、
+// Legal.kt の LegalDoc と LegalScreen.kt に足してから、allowedLicenses か allowedLicensesMap に足す（docs/development.md の「依存ライブラリのライセンス」）
+aboutLibraries {
+    library {
+        // Sabera App SDK の表示は NOTICE に書く（SDK は Apache License 2.0 ではなく SDK 利用規約で提供される）
+        exclusionPatterns.add(Regex("jp\\.jig\\.sabera\\..*").toPattern())
+        requireLicense = true
+    }
+    license {
+        strictMode = com.mikepenz.aboutlibraries.plugin.StrictMode.FAIL
+        allowedLicenses.add("Apache-2.0")
+        allowedLicensesMap = mapOf("MIT" to listOf("org.slf4j:slf4j-api"))
+    }
+}
+
 dependencies {
     implementation("jp.jig.sabera.app.sdk:sabera-app-core:1.0.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
@@ -71,6 +88,7 @@ dependencies {
     implementation(compose.material3)
     implementation("androidx.activity:activity-compose:1.10.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    implementation("com.mikepenz:aboutlibraries-core:15.2.0")
 
     testImplementation(kotlin("test"))
     // GameEngine の拍を仮想時間で確かめる

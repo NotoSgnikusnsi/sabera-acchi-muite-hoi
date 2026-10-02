@@ -40,6 +40,16 @@ GitHubPackagesPassword=<PAT>
 - monochrome の `pathData` は、前景の中（`#C9D7FD`）の path と同じにそろえ、色は白 1 色のままにする。テーマアイコンの色はシステムが壁紙に合わせて付ける
 - minSdk が 31 なので、アダプティブアイコンは版の修飾子の無い `mipmap-anydpi/` に置き、密度ごとの PNG は置かない。アダプティブアイコンは Android 8.0（API 26）以上で使われ、この minSdk ではすべての端末が対象になる
 
+## 依存ライブラリのライセンス
+
+アプリの「ライセンス」画面には、APK に入る依存ライブラリの一覧（名前・版・ライセンス・作者）を出す。一覧は AboutLibraries の Gradle プラグイン（`com.mikepenz.aboutlibraries.plugin.android`）がビルドのたびに依存から作り、`res/raw/aboutlibraries.json` として APK に入れる。アプリは `Legal.kt` の `readLibraries` でそれを読む。
+
+- 依存ライブラリのライセンスは Apache License 2.0 と、SLF4J API Module（`org.slf4j:slf4j-api`）の MIT License だけを許可している。許可していないライセンスの依存や、ライセンスの記載が無い依存が入ると、プラグインがビルドを失敗させる（`app/build.gradle.kts` の `aboutLibraries` の `strictMode = FAIL` と `requireLicense = true`）
+- ビルドが止まったら、そのライブラリの著作権表示とライセンスの全文を `LICENSES/` に置き、`Legal.kt` の `LegalDoc` と `LegalScreen.kt` の「ライセンス」画面に足してから、`allowedLicenses` か `allowedLicensesMap` に足す。MIT License や BSD のライセンスは著作権表示を一緒に載せることを求めるので、プラグインが入れる雛形の文ではなく、ライブラリの jar などにある LICENSE を使う
+- Sabera App SDK は一覧から外している（`exclusionPatterns`）。SDK の表示は `NOTICE` に書き、SDK に含まれる Opus は `LICENSES/Opus-BSD-3-Clause.txt` に置いている
+- Apache License 2.0 は、依存に NOTICE ファイルがあればその文面も載せることを求める。2026-10 に 0.1.2 の依存の jar と aar（aar の中の classes.jar を含む）を調べたときは、NOTICE ファイルを持つ依存は無かった。NOTICE ファイルを持つ依存が入ったら、その文面を `LICENSES/` に置いて「ライセンス」画面に出す
+- プラグインは、依存の POM に全文が無いライセンスについて、ビルドのときに spdx.org から全文と正式な名前を取る。アプリが画面に出すのはライセンスの名前だけで、全文は `LICENSE` と `LICENSES/` のものを出す
+
 ## 変更の決まり
 
 - グラスとの通信は SDK の公開 API だけで行う。SDK を通さない BLE の送受信をしない。ファームウェアに触れない

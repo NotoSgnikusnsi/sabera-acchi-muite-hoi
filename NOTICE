@@ -38,3 +38,7 @@ SDK 本体は Apache License 2.0 の対象外で、SDK 利用規約が適用さ�
 APK の中の SDK 本体にも Apache License 2.0 ではなく SDK 利用規約が適用される。
 SDK 本体の Android 版に含まれる Opus (libopus) 1.4 の著作権表示と免責は LICENSES/Opus-BSD-3-Clause.txt にあり、
 アプリの「ライセンス」画面にも出す。
+
+APK には、このほかに AndroidX・Jetpack Compose・Kotlin などの依存ライブラリが入る。依存ライブラリの一覧（名前・版・ライセンス・作者）は
+ビルドのときに作り、アプリの「ライセンス」画面に出す。依存ライブラリのライセンスは Apache License 2.0 と、SLF4J API Module の MIT License の 2 種類である。
+SLF4J API Module の著作権表示と許諾文は LICENSES/SLF4J-MIT.txt にあり、アプリの「ライセンス」画面にも出す。

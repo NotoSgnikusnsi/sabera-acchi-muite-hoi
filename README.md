@@ -51,6 +51,6 @@ Sabera App SDK は GitHub Packages の private なパッケージで、この re
 
 この repo のソースコードは [Apache License 2.0](LICENSE) で提供する。公式サンプル（Apache License 2.0）を元にした部分と、その著作権表示は [NOTICE](NOTICE) に書いた。
 
-Sabera App SDK 本体はこの repo に含まれず、Apache License 2.0 の対象外で、[SDK の利用規約](https://github.com/jig-SABERA/sabera-sdk-packages/blob/main/TERMS.md)が別に適用される。APK に組み込まれた SDK 本体にも、SDK の利用規約が適用される。この repo をビルドする人は、各自で SDK の利用規約に同意して SDK を取得する。SDK に含まれる Opus の著作権表示は [LICENSES/](LICENSES/) にある。
+Sabera App SDK 本体はこの repo に含まれず、Apache License 2.0 の対象外で、[SDK の利用規約](https://github.com/jig-SABERA/sabera-sdk-packages/blob/main/TERMS.md)が別に適用される。APK に組み込まれた SDK 本体にも、SDK の利用規約が適用される。この repo をビルドする人は、各自で SDK の利用規約に同意して SDK を取得する。SDK に含まれる Opus と、依存ライブラリの SLF4J API Module の著作権表示は [LICENSES/](LICENSES/) にある。
 
 「SABERA」の名称は、このアプリが SABERA に対応していることを示すためだけに使っている。
