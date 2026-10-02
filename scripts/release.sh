@@ -22,10 +22,10 @@ name="sabera-acchi-muite-hoi-$version"
 [[ -z $(git status --porcelain) ]] || die "commit していない変更がある"
 if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then die "tag ${tag} が既にある（versionName と versionCode を上げる）"; fi
 
-# CHANGELOG の「## [x.y.z]」から次の「## [」の手前までを、その版の変更として使う
+# CHANGELOG の「## [x.y.z]」から、次の「## [」かリンク定義（[x.y.z]: URL）の手前までを、その版の変更として使う
 changes=$(awk -v v="$version" '
   index($0, "## [" v "]") == 1 { on = 1; next }
-  on && /^## \[/ { exit }
+  on && (/^## \[/ || /^\[[^]]+\]: /) { exit }
   on { print }
 ' CHANGELOG.md)
 [[ -n ${changes//[[:space:]]/} ]] || die "CHANGELOG.md に ## [$version] の節が無い"
@@ -47,7 +47,7 @@ $changes
 
 1. \`$name.apk\` をスマホに送り、ファイルアプリから開いてインストールする（提供元不明のアプリの許可が要る）
 2. 公式アプリ（SABERA）を Android の設定 → アプリから強制停止する
-3. アプリを開いて同意し、「グラスを選んでつなぐ」でグラスを選ぶ
+3. このアプリを開いて同意し、「グラスを選んでつなぐ」でグラスを選ぶ
 
 ## 注意
 

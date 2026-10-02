@@ -4,7 +4,7 @@ build/
 .kotlin/
 # 手元の SDK の場所（端末ごとに違う）
 local.properties
-# APK は repo に入れない（ビルドして作る）。scripts/release.sh の出力も
+# APK と scripts/release.sh の出力（dist/）は repo に入れない
 *.apk
 dist/
 *.aab
