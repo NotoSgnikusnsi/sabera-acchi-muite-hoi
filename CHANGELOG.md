@@ -2,16 +2,16 @@
 
 [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) の形で書く。
 
-## [Unreleased]
-
-### Changed
-
-- この repo のソースコードに Apache License 2.0 を付けた。アプリの「ライセンス」画面には、このアプリの著作権表示と Apache License 2.0 の全文を出す
+## [0.1.2] - 2026-10-03
 
 ### Added
 
 - ホーム画面とアプリ一覧に出るアイコンを、Android の既定のアイコンから、指さしの手のドット絵に変えた。Android 13 以降でテーマアイコンをオンにすると、このアイコンも壁紙に合わせた色で出る
 - アプリの「ライセンス」画面に、アプリに入っているライブラリ（AndroidX・Jetpack Compose・Kotlin など）の一覧を出すようにした。ライブラリごとに名前・版・ライセンス・作者を出し、MIT License で提供される SLF4J API Module の著作権表示と全文も出す
+
+### Changed
+
+- この repo のソースコードに Apache License 2.0 を付けた。アプリの「ライセンス」画面には、このアプリの著作権表示と Apache License 2.0 の全文を出す
 
 ## [0.1.1] - 2026-10-02
 
