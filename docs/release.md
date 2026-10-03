@@ -56,4 +56,4 @@ GitHub Release で APK を配る前に、外に出してよいかを次の 8 項
 
 ## 公開後に確かめること
 
-repo を public にしたら、`PRIVACY.md` の問い合わせ先に書いた Issues のページ（https://github.com/NotoSgnikusnsi/sabera-acchi-muite-hoi/issues）が開け、Issues が有効なことを、ログインしていないブラウザで確かめる。無効なら repo の Settings の Features で Issues を有効にする。
+repo を public にしたら、`PRIVACY.md` の問い合わせ先に書いた [Issues のページ](https://github.com/NotoSgnikusnsi/sabera-acchi-muite-hoi/issues)が開け、Issues が有効なことを、ログインしていないブラウザで確かめる。無効なら repo の Settings の Features で Issues を有効にする。
