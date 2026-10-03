@@ -31,7 +31,9 @@ Copyright 2026 NotoSgnikusnsi
   提供されており、SDK を組み込んだアプリを配布するときは著作権表示と免責の表示が必要です。
   全文と対応の仕方は docs/third-party-notices.md を参照してください。
 
-注: サンプルの NOTICE が指す docs/third-party-notices.md は、この repo ではなく公式サンプルの repo（https://github.com/jig-SABERA/sabera-sdk）にあるファイル。
+注: サンプルの NOTICE が指す docs/third-party-notices.md は、この repo ではなく、
+次の URL の公式サンプルの repo にあるファイル。
+  https://github.com/jig-SABERA/sabera-sdk
 
 Sabera App SDK 本体はこの repo に含まれない（ビルドのときに GitHub Packages から取得する）。
 SDK 本体は Apache License 2.0 の対象外で、SDK 利用規約が適用される。ビルドした APK には SDK 本体が組み込まれるが、
